@@ -1,0 +1,12 @@
+# Prevent bazel from OOMing.
+startup --host_jvm_args=-Xmx2500m
+startup --host_jvm_args=-Xms2500m
+test --ram_utilization_factor=10
+
+build --verbose_failures
+test --verbose_failures
+run --verbose_failures
+
+# We run our database in a docker container, so we need the "standalone" thing, I think.
+build --spawn_strategy=standalone --genrule_strategy=standalone
+test --test_strategy=standalone
