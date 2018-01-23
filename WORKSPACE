@@ -14,7 +14,7 @@ go_register_toolchains()
 git_repository(
     name = "io_bazel_rules_webtesting",
     remote = "https://github.com/bazelbuild/rules_webtesting.git",
-    commit = "d9009f881c19d3da520943955d9df80b492e9235",
+    commit = "980c8ab6f4869d4315f7f155c55ecd5495740630",
 )
 
 load("@io_bazel_rules_webtesting//web:repositories.bzl",
