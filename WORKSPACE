@@ -6,6 +6,12 @@ git_repository(
     commit = "b2a59d8140f33174ca9cbac2cf5ab0bf0997826c",
 )
 
+git_repository(
+    name = "bazel_skylib",
+    remote = "https://github.com/bazelbuild/bazel-skylib.git",
+    commit = "ff23a62c57d2912c3073a69c12f42c3d6e58a957",
+)
+
 load("@io_bazel_rules_go//go:def.bzl", "go_register_toolchains", "go_repository", "go_rules_dependencies")
 
 go_rules_dependencies()
