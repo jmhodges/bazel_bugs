@@ -1,8 +1,8 @@
 language: go
 
 before_install:
-  - wget --no-clobber https://github.com/bazelbuild/bazel/releases/download/0.8.1/bazel_0.8.1-linux-x86_64.deb
-  - sudo dpkg -i bazel_0.8.1-linux-x86_64.deb
+  - wget --no-clobber https://releases.bazel.build/0.10.0/rc4/bazel-0.10.0rc4-without-jdk-installer-linux-x86_64.sh
+  - sudo ./bazel-0.10.0rc4-without-jdk-installer-linux-x86_64.sh
 
 install:
   - mv .bazelrc.travis .bazelrc
