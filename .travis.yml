@@ -2,7 +2,7 @@ language: go
 
 before_install:
   - wget --no-clobber https://releases.bazel.build/0.10.0/rc4/bazel-0.10.0rc4-without-jdk-installer-linux-x86_64.sh
-  - sudo bash ./bazel-0.10.0rc4-without-jdk-installer-linux-x86_64.sh
+  - sudo bash ./bazel-0.10.0rc4-without-jdk-installer-linux-x86_64.sh --bin=$HOME/bin --base=$HOME/.bazel
 
 install:
   - mv .bazelrc.travis .bazelrc
