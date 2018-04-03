@@ -1,0 +1,25 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+load("@io_bazel_rules_go//proto:def.bzl", "go_proto_library")
+
+proto_library(
+    name = "sessproto_proto",
+    srcs = ["sess.proto"],
+    visibility = ["//visibility:public"],
+    deps = ["//proto/time:timeproto_proto"],
+)
+
+go_proto_library(
+    name = "sessproto_go_proto",
+    compilers = ["@io_bazel_rules_go//proto:go_grpc"],
+    importpath = "bazel_bugs/proto/sessions/sessproto",
+    proto = ":sessproto_proto",
+    visibility = ["//visibility:public"],
+    deps = ["//proto/time:go_default_library"],
+)
+
+go_library(
+    name = "go_default_library",
+    embed = [":sessproto_go_proto"],
+    importpath = "bazel_bugs/proto/sessions/sessproto",
+    visibility = ["//visibility:public"],
+)

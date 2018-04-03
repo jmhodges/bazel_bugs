@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package sessproto;
+
+import "proto/time/time.proto";
+
+service Sessions {
+  rpc DoStuff(ExampleMessage) returns (ExampleMessage) {}
+}
+
+
+message ExampleMessage {
+  timeproto.FooTime whatever = 1;
+}

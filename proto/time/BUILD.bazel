@@ -1,0 +1,22 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+load("@io_bazel_rules_go//proto:def.bzl", "go_proto_library")
+
+proto_library(
+    name = "timeproto_proto",
+    srcs = ["time.proto"],
+    visibility = ["//visibility:public"],
+)
+
+go_proto_library(
+    name = "timeproto_go_proto",
+    importpath = "bazel_bugs/proto/time",
+    proto = ":timeproto_proto",
+    visibility = ["//visibility:public"],
+)
+
+go_library(
+    name = "go_default_library",
+    embed = [":timeproto_go_proto"],
+    importpath = "bazel_bugs/proto/time",
+    visibility = ["//visibility:public"],
+)
