@@ -11,7 +11,8 @@ import (
 
 func TestOkay(t *testing.T) {
 	caps := selenium.Capabilities{}
-	caps["acceptInsecureCerts"] = true
+	// Turns out this line here was the fix
+	// caps["acceptInsecureCerts"] = true
 	wd, err := webtest.NewWebDriverSession(caps)
 	if err != nil {
 		t.Fatal(err)
