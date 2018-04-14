@@ -1,0 +1,26 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library", "go_path", "go_test")
+load("@io_bazel_rules_webtesting//web:go.bzl", "go_web_test_suite")
+
+go_web_test_suite(
+    name = "foobar",
+    srcs = [
+        "foobar_test.go",
+    ],
+    browser_overrides = {
+        "@io_bazel_rules_webtesting//browsers:chromium-local": {
+            # this tag is a hack to avoid go_default_library and this test from colliding on
+            # the howsmyssl_billing_test database. Need a more robust solution which
+            # probably involves fixes to setup.sh to create integration envs.
+            "tags": ["exclusive"],
+        },
+    },
+    browsers = [
+        # For experimental purposes only. Eventually you should
+        # create your own browser definitions.
+        "@io_bazel_rules_webtesting//browsers:chromium-local",
+    ],
+    deps = [
+        "@com_github_tebeka_selenium//:go_default_library",
+        "@io_bazel_rules_webtesting//go/webtest:go_default_library",
+    ],
+)
