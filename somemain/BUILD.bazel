@@ -5,6 +5,7 @@ go_library(
     srcs = ["main.go"],
     importpath = "bazel_bugs/somemain",
     visibility = ["//visibility:private"],
+    deps = ["@com_github_jmhodges_gocld3//cld3:go_default_library"],
 )
 
 go_binary(

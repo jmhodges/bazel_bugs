@@ -33,3 +33,9 @@ go_register_toolchains()
 load("@bazel_gazelle//:deps.bzl", "gazelle_dependencies")
 load("@bazel_gazelle//:def.bzl", "go_repository")
 gazelle_dependencies()
+
+go_repository(
+    name = "com_github_jmhodges_gocld3",
+    commit = "b87be5d4b64748be2c19665b2b48abaa88a81d51",
+    importpath = "github.com/jmhodges/gocld3",
+)
