@@ -1,7 +1,7 @@
 load("@io_bazel_rules_go//go:def.bzl", "go_prefix")
 load("@bazel_gazelle//:def.bzl", "gazelle")
 
-go_prefix("com_github_bazel_bugs")
+go_prefix("com_github_jmhodges_bazel_bugs")
 
 gazelle(
     name = "gazelle",
