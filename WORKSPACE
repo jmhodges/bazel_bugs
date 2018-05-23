@@ -1,4 +1,4 @@
-workspace(name = "com_github_bazel_bugs")
+workspace(name = "com_github_jmhodges_bazel_bugs")
 
 # required by gazelle
 skylib_version = "f9b0ff1dd3d119d19b9cacbbc425a9e61759f1f5"
