@@ -1,4 +1,6 @@
 load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
+load("@io_bazel_rules_webtesting//web:go.bzl", "go_web_test_suite")
+load("@io_bazel_rules_webtesting//web:web.bzl", "custom_browser")
 
 go_library(
     name = "go_default_library",
@@ -11,4 +13,24 @@ go_binary(
     name = "somemain",
     embed = [":go_default_library"],
     visibility = ["//visibility:public"],
+)
+
+go_web_test_suite(
+    name = "web_test",
+    srcs = ["web_test.go"],
+    embed = [":go_default_library"],
+    browsers = ["@io_bazel_rules_webtesting//browsers:chromium-local"],
+    # To see the error fixed, comment out the above line, and uncomment the
+    # below line.
+    # browsers = [":chromium-no-sandbox"],
+    deps = [
+        "@com_github_tebeka_selenium//:go_default_library",
+        "@io_bazel_rules_webtesting//go/webtest:go_default_library",
+    ],
+)
+
+custom_browser(
+    name = "chromium-no-sandbox",
+    browser = "@io_bazel_rules_webtesting//browsers:chromium-local",
+    metadata = "chromium-no-sandbox.json",
 )

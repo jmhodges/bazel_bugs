@@ -1,10 +1,10 @@
 workspace(name = "com_github_jmhodges_bazel_bugs")
 
 # required by gazelle
-skylib_version = "f9b0ff1dd3d119d19b9cacbbc425a9e61759f1f5"
+skylib_version = "8cecf885c8bf4c51e82fd6b50b9dd68d2c98f757"
 http_archive(
     name = "bazel_skylib",
-    sha256 = "ce27a2007deda8a1de65df9de3d4cd93a5360ead43c5ff3017ae6b3a2abe485e",
+    sha256 = "68ef2998919a92c2c9553f7a6b00a1d0615b57720a13239c0e51d0ded5aa452a",
     strip_prefix= "bazel-skylib-{v}".format(v=skylib_version),
     urls = [
         "https://github.com/bazelbuild/bazel-skylib/archive/{v}.tar.gz".format(v=skylib_version)
@@ -13,16 +13,16 @@ http_archive(
 
 load("@bazel_skylib//:lib.bzl", "versions")
 
-git_repository(
+http_archive(
     name = "io_bazel_rules_go",
-    remote = "https://github.com/bazelbuild/rules_go.git",
-    commit = "ca213b3006c8eed6b3f1ea649cab36b817901b46",
+    urls = ["https://github.com/bazelbuild/rules_go/releases/download/0.16.1/rules_go-0.16.1.tar.gz"],
+    sha256 = "f5127a8f911468cd0b2d7a141f17253db81177523e4429796e14d429f5444f5f",
 )
 
-http_archive(
+git_repository(
     name = "bazel_gazelle",
-    url = "https://github.com/bazelbuild/bazel-gazelle/releases/download/0.12.0/bazel-gazelle-0.12.0.tar.gz",
-    sha256 = "ddedc7aaeb61f2654d7d7d4fd7940052ea992ccdb031b8f9797ed143ac7e8d43",
+    commit = "f77eb9a55ac246a27f7a475c178740713bb45102",
+    remote = "https://github.com/bazelbuild/bazel-gazelle.git"
 )
 
 load("@io_bazel_rules_go//go:def.bzl", "go_register_toolchains", "go_rules_dependencies")
@@ -33,3 +33,15 @@ go_register_toolchains()
 load("@bazel_gazelle//:deps.bzl", "gazelle_dependencies")
 load("@bazel_gazelle//:def.bzl", "go_repository")
 gazelle_dependencies()
+
+git_repository(
+    name = "io_bazel_rules_webtesting",
+    remote = "https://github.com/bazelbuild/rules_webtesting.git",
+    commit = "95df2543eee901f5ec29bb99f9754f7d59692ae0",
+)
+
+load("@io_bazel_rules_webtesting//web:repositories.bzl", "browser_repositories", "web_test_repositories")
+
+browser_repositories(chromium = True)
+web_test_repositories(omit_bazel_skylib = True)
+
