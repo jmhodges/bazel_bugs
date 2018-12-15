@@ -37,7 +37,7 @@ gazelle_dependencies()
 git_repository(
     name = "io_bazel_rules_webtesting",
     remote = "https://github.com/bazelbuild/rules_webtesting.git",
-    commit = "95df2543eee901f5ec29bb99f9754f7d59692ae0",
+    commit = "596d07c1f38486486969302158b9019418a5409e",
 )
 
 load("@io_bazel_rules_webtesting//web:repositories.bzl", "browser_repositories", "web_test_repositories")
