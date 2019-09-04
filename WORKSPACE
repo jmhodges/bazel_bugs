@@ -26,6 +26,11 @@ load("@io_bazel_rules_docker//repositories:deps.bzl", container_deps = "deps")
 
 container_deps()
 
+# load(
+#     "@io_bazel_rules_docker//container:container.bzl",
+#     "container_pull",
+# )
+
 load("@io_bazel_rules_docker//container:new_pull.bzl", "new_container_pull")
 
 new_container_pull(
