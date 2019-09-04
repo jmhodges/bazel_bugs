@@ -38,5 +38,5 @@ new_container_pull(
     registry = "index.docker.io",
     repository = "library/mysql",
     # digest for tag 5.7.25 on 2019-02-28
-    digest = "sha256:8c15b2612051244d0a2b6ceb6f9bf82ddc0e909555c1067c098e5f935e2751a7",
+    digest = "sha256:2bd4665d9c5ecad61f7ceff82f82e6470c4686b9ec0fd986b84012861506c722",
 )
