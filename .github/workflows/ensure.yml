@@ -12,7 +12,7 @@ jobs:
           ref: ensure_action
       - run: pwd
       - run: ls -l
-      - uses: jmhodges/ensure_latest_go@87c34372e39d66fe0d4f8cb11251bc6ccb67a43e
+      - uses: jmhodges/ensure_latest_go@081d05a1605198a51b547505f583104f67003dad
         id: ensure_go
         with:
           dockerfiles: "./Dockerfile"
