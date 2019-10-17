@@ -12,11 +12,11 @@ jobs:
           ref: ensure_action
       - run: pwd
       - run: ls -l
-      - uses: jmhodges/ensure_latest_go@action
+      - uses: jmhodges/ensure_latest_go@23914b43f7130be6569b30641d2db038314d3cdc
         id: ensure_go
         with:
           dockerfiles: "./Dockerfile"
-      - run: echo "welp ${{ steps.ensure_go.outputs.go_version}}"
+      - run: echo "welp steps: ${{ steps }} ensure_go ${{ steps.ensure_go }}"
       # - run: echo "##[set-output name=pr_title;]updating to latest Go release ${{ steps.ensure_go.outputs.go_version}}"
       #   id: pr_title_maker
       # - name: Create pull request
