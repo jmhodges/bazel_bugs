@@ -16,6 +16,7 @@ jobs:
         id: ensure_go
         with:
           dockerfiles: "./Dockerfile"
+      - run: echo "welp ${{ steps.ensure_go.outputs.go_version}}"
       - run: echo "##[set-output name=pr_title;]updating to latest Go release ${{ steps.ensure_go.outputs.go_version}}"
         id: pr_title_maker
       - name: Create pull request
