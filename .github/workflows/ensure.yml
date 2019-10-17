@@ -17,11 +17,11 @@ jobs:
         with:
           dockerfiles: "./Dockerfile"
       - run: echo "welp ${{ steps.ensure_go.outputs.go_version}}"
-      - run: echo "##[set-output name=pr_title;]updating to latest Go release ${{ steps.ensure_go.outputs.go_version}}"
-        id: pr_title_maker
-      - name: Create pull request
-        uses: peter-evans/create-pull-request@v1.5.2
-        env:
-          PULL_REQUEST_TITLE: ${{ steps.pr_title_maker.outputs.pr_title }}
-          COMMIT_MESSAGE: ${{ steps.pr_title_maker.outputs.pr_title }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - run: echo "##[set-output name=pr_title;]updating to latest Go release ${{ steps.ensure_go.outputs.go_version}}"
+      #   id: pr_title_maker
+      # - name: Create pull request
+      #   uses: peter-evans/create-pull-request@v1.5.2
+      #   env:
+      #     PULL_REQUEST_TITLE: ${{ steps.pr_title_maker.outputs.pr_title }}
+      #     COMMIT_MESSAGE: ${{ steps.pr_title_maker.outputs.pr_title }}
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
