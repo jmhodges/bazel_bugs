@@ -10,6 +10,8 @@ jobs:
       - uses: actions/checkout@master
         with:
           ref: master
+      - run: pwd
+      - run: ls -l
       - uses: jmhodges/ensure_latest_go@action
         id: ensure_go
         with:
