@@ -1,6 +1,12 @@
 load("@bazel_gazelle//:def.bzl", "gazelle")
+load("@io_bazel_rules_go//go:def.bzl", "nogo")
 
 gazelle(
     name = "gazelle",
     prefix = "github.com/jmhodges/bazel_bugs",
+)
+
+nogo(
+    name = "bazel_bugs_nogo",
+    visibility = ["//visibility:public"],  # must have public visibility
 )
