@@ -11,7 +11,7 @@
       "-bazel-bin",
       "-bazel-out",
       "-bazel-testlogs",
-      "-bazel-mtganalysis"
+      "-bazel-bazel_bugs"
     ],
     "formatting.gofumpt": true,
     "formatting.local": "github.com/jmhodges/bazel_bugs", // FIXME required?
