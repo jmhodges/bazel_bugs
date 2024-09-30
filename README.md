@@ -2,7 +2,7 @@ Run `mkdir -p .vscode && cp vscode-settings.json .vscode/settings.json`
 
 Then run `bazel build //foo/...`
 
-Then open this directory as a workspace and open foo/foo.go in that workspace.
+Then open this directory as a workspace. Then open foo/foo.go in that workspace.
 
 Wait for about 10 seconds or so.
 
