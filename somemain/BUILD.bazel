@@ -5,6 +5,7 @@ go_library(
     srcs = ["main.go"],
     importpath = "github.com/jmhodges/bazel_bugs/somemain",
     visibility = ["//visibility:private"],
+    deps = ["@com_google_cloud_go_bigquery//:go_default_library"],
 )
 
 go_binary(
