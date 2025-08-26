@@ -13,4 +13,9 @@ go_deps.module(
     sum = "h1:rZvHnjSUs5sHK3F9awiuFk2PeOaB8suqNuim21GbaTc=",
     version = "v1.69.0",
 )
-use_repo(go_deps, "com_google_cloud_go_bigquery")
+go_deps.module(
+    path = "cloud.google.com/go",
+    sum = "h1:Zk+X7rX2m3b0u8Yk7+5tJv2y4kYp6v0pX1i5c1+o9mM=",
+    version = "v0.113.0",
+)
+use_repo(go_deps, "com_google_cloud_go_bigquery", "com_google_cloud_go")
