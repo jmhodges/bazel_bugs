@@ -6,3 +6,11 @@ module(
 
 bazel_dep(name = "rules_go", version = "0.57.0", repo_name = "io_bazel_rules_go")
 bazel_dep(name = "gazelle", version = "0.45.0", repo_name = "bazel_gazelle")
+
+go_deps = use_extension("@bazel_gazelle//:extensions.bzl", "go_deps")
+
+go_deps.module(
+    path = "cloud.google.com/go/bigquery",
+    sum = "h1:rZvHnjSUs5sHK3F9awiuFk2PeOaB8suqNuim21GbaTc=",
+    version = "v1.69.0",
+)
