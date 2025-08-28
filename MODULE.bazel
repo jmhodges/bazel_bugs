@@ -1,0 +1,7 @@
+"com_github_jmhodges_bazel_bugs is a place for reproducing bugs in the Bazel software ecosystem"
+
+module(
+    name = "com_github_jmhodges_bazel_bugs",
+    version = "1.0.0",
+    compatibility_level = 1,
+)
