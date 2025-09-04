@@ -1,3 +1,21 @@
 load("@gazelle//:def.bzl", "gazelle")
+load("@rules_go//go:def.bzl", "go_binary", "go_library")
 
 gazelle(name = "gazelle")
+
+go_library(
+    name = "bazel_bugs_lib",
+    srcs = ["main.go"],
+    importpath = "github.com/jmhodges/bazel_bugs",
+    visibility = ["//visibility:private"],
+    deps = [
+        "@com_github_pemistahl_lingua_go//:lingua-go",
+        "@com_github_pemistahl_lingua_go//serialization",
+    ],
+)
+
+go_binary(
+    name = "bazel_bugs",
+    embed = [":bazel_bugs_lib"],
+    visibility = ["//visibility:public"],
+)
